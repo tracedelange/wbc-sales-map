@@ -20,6 +20,7 @@ const firebaseConfig = {
     appId:appId
 }
 
+console.log(firebaseConfig)
 
 firebase.initializeApp(firebaseConfig);
 console.log('firebase connection established')
