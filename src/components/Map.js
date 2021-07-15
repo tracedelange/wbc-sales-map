@@ -15,7 +15,7 @@ import WBCLogo from '../assets/images/logo-marker-smaller.png'
 const Map = ({premiseType, displayMonth, productFilterState}) => {
 
 
-    const [selectedMarker, setSelectedMarker] = useState(null);
+    const [selectedMarker, setSelectedMarker] = useState('');
 
     const [productsCarried, setProductsCarried] = useState([]);
 
@@ -98,10 +98,18 @@ const Map = ({premiseType, displayMonth, productFilterState}) => {
         <GoogleMap
           zoom={mapConfig.zoom}
           center={mapConfig.center}
-          mapId={mapConfig.mapId}
+          mapIds={mapConfig.mapId}
           mapContainerStyle={mapConfig.styles}
           onClick={handleMapClick}
           onMouseOut={handleMapClick}
+        //   streetView={false}
+          options={{
+               gestureHandling: "greedy",
+               fullscreenControl: false,
+               streetViewControl: false,
+               mapTypeControl: false,
+
+         }}
         >
         
         <Marker opacity={.8} zIndex={0} icon={WBCLogo} position={mapConfig.center}/>
@@ -146,7 +154,7 @@ const Map = ({premiseType, displayMonth, productFilterState}) => {
         {selectedMarker && (
             <InfoWindow
                 onCloseClick={() => {
-                setSelectedMarker(null);
+                setSelectedMarker('');
             }}
             position={{
                 lat: selectedMarker.latLong.lat + 0.001,

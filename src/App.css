@@ -159,7 +159,7 @@ label {
   }
 
   img {
-    width: 15%;
+    width: 25%;
   }
 
  html, body {
@@ -175,14 +175,38 @@ label {
     /* color: red; */
     font-weight: 500;
 
+  }
+
+  #header {
+
+    position: static;
+    top: 10%;
 
   }
 
   #map {
 
-    height: 90vh;
+    height: 100%;
+
   }
 
+  .info h1 {
+
+    font-weight: 400;
+
+  }
+
+  .info span {
+
+    font-weight: 400;
+
+  }
+
+  .info p {
+
+    font-weight: 200;
+
+  }
 
  }
 
