@@ -1,6 +1,6 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-This project is 
+This project is under development by Trace DeLange, any questions can be directed to tracedelange@me.com
 
 ## [Unreleased / In Development]
 - Favicon needs to be changed from the default react-app
@@ -12,7 +12,7 @@ This project is
 - Desired Heroku hosting strength to be discussed.
 - Domain name to be discussed.
 
-## [0.1] - 2021-07-16
+## [v0.1] - 2021-07-16
 ### Added
 - Added a changelog to keep track of development.
 - Changed the ReadMe from default create-react-app text.
