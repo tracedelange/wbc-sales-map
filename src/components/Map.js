@@ -7,7 +7,7 @@ import IconSource from '../assets/images/pin-icon.png'
 import ProductFilter from './ProductFilter';
 import testObject from '../testObject';
 import WBCLogo from '../assets/images/logo-marker-smaller.png'
-import { FilterState } from 'pixi.js';
+
 
 
 
