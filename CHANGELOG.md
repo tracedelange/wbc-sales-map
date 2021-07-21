@@ -43,21 +43,25 @@ This project is under development by Trace DeLange, any questions can be directe
 ### Added
 - GoDaddy Domain Name subroute added. Site can now be visited at find.waconiabrewing.com
 - Loading icon added to occupy screen during back-end fetching
+- If info window is open and filter is clicked, info window will close
 
 ### Changed
 - Backend hosting upgraded to 'Hobby' level Dyno on heroku. Several features enabled as well as much more responsive load time on webapp.
 - CSS media query rules
 - Favicon copied from main website
-
+- Minor styling changes on info windows
+- Corrected map options that point to the google map style defined online
 ### Removed
 - Removed unused components (Checkboxes, Customcheckboxes)
 - Removed /private as all keys are now stored in local, gitIgnored .env
 - Removed unused assets
 
+### Fixed
+- Fixed bug where header disappears on info window exit
+
 
 ## [v0.3] - Unreleased
 
 ### Added
-- If info window is open and filter is clicked, info window will close
 
 
