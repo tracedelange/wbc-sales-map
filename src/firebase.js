@@ -1,4 +1,3 @@
-// import firebaseConfig from './private/sales-map-keys'
 import firebase from 'firebase'
 
 

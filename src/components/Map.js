@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import mapConfig from '../map-config';
-// import database from '../firebase';
-// import getMonthFromDatabase from '../firebaseFunctions'
 import getRangeFromDatabase from '../firebaseFunctions';
 import ProductCard from './ProductCard';
 import IconSource from '../assets/images/pin-icon.png'
@@ -12,7 +10,7 @@ import WBCLogo from '../assets/images/logo-marker-smaller.png'
 
 
 
-const Map = ({premiseType, displayMonth, productFilterState}) => {
+const Map = ({premiseType, displayMonth, productFilterState, data}) => {
 
 
     const [selectedMarker, setSelectedMarker] = useState('');
@@ -49,31 +47,34 @@ const Map = ({premiseType, displayMonth, productFilterState}) => {
         setProductsCarried(newProducts)
     }
   
-    const [data, setData] = useState({})
-    const [dataLoaded, setDataLoaded] = useState(false)
+    // const [data, setData] = useState({})
+    
 
-    useEffect(() => { 
+    // useEffect(() => { 
 
-        let today = new Date();
-        let yy = today.getFullYear()
-        let currentMonthRoute = `${displayMonth}_${yy}`
+    //     let today = new Date();
+    //     let yy = today.getFullYear()
+    //     let currentMonthRoute = `${displayMonth}_${yy}`
 
-        getRangeFromDatabase(currentMonthRoute, (data) => {
+    //     getRangeFromDatabase(currentMonthRoute, (data) => {
 
-            setData((existingData) => {
-                return {...existingData,
-                ...data}
-            })
-        })
-        let previousMonthRoute = `${displayMonth - 1}_${yy}`
-        getRangeFromDatabase(previousMonthRoute, (data) => {
-            setData((existingData) => {
-                return {...existingData,
-                ...data}
-            })
-        })
-        console.log('this should only run once at the beginning and every time the month button is clicked')
-      }, []);
+    //         setData((existingData) => {
+    //             return {...existingData,
+    //             ...data}
+    //         })
+    //     })
+    //     let previousMonthRoute = `${displayMonth - 1}_${yy}`
+    //     getRangeFromDatabase(previousMonthRoute, (data) => {
+    //         setData((existingData) => {
+    //             return {...existingData,
+    //             ...data}
+    //         })
+
+    //         handleDataLoaded()
+
+    //     })
+    //     console.log('this should only run once at the beginning and every time the month button is clicked')
+    //   }, []);
 
       let productArray = (productsCarried).map((product) => {
           
@@ -90,6 +91,9 @@ const Map = ({premiseType, displayMonth, productFilterState}) => {
 
     return (
 
+
+        
+
         <LoadScript
         googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}
         >
@@ -101,7 +105,7 @@ const Map = ({premiseType, displayMonth, productFilterState}) => {
           mapIds={mapConfig.mapId}
           mapContainerStyle={mapConfig.styles}
           onClick={handleMapClick}
-          onMouseOut={handleMapClick}
+        //   onMouseOut={handleMapClick}
         //   streetView={false}
           options={{
                gestureHandling: "greedy",

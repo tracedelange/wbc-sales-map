@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+#private keys
 .env
 
 # testing
@@ -24,5 +25,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#Private keys
-/src/private

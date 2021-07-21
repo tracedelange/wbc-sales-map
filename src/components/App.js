@@ -1,10 +1,9 @@
 import Map from './Map'
 import Header from './Header'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProductFilter from './ProductFilter';
-
-
-
+import spinner from '../assets/images/loading.gif'
+import getRangeFromDatabase from '../firebaseFunctions';
 
 
 function App() {
@@ -13,7 +12,13 @@ function App() {
 
   const [displayStatus, setDisplayStatus] = useState('Both')
 
+  const [dataLoaded, setDataLoaded] = useState(false)
+
+  const [data, setData] = useState({})
+  
+
   const displayMonth = new Date().getMonth() + 1
+
 
   const adjustFilterList = (item) => {
 
@@ -37,7 +42,33 @@ function App() {
 
   }
 
-  
+  useEffect(() => { 
+
+    let today = new Date();
+    let yy = today.getFullYear()
+    let currentMonthRoute = `${displayMonth}_${yy}`
+
+    getRangeFromDatabase(currentMonthRoute, (data) => {
+
+        setData((existingData) => {
+            return {...existingData,
+            ...data}
+        })
+    })
+    let previousMonthRoute = `${displayMonth - 1}_${yy}`
+    getRangeFromDatabase(previousMonthRoute, (data) => {
+        setData((existingData) => {
+            return {...existingData,
+            ...data}
+        })
+
+        setTimeout(()=>[setDataLoaded(true)], 500)
+        // setDataLoaded(true)
+
+    })
+    console.log('this should only run once at the beginning and every time the month button is clicked')
+  }, []);
+
 
   const onButtonClick = () => {
 
@@ -51,21 +82,6 @@ function App() {
     }
   }
 
-  // const onMonthClick = () => {
-    
-  //   let newMonth = displayMonth - 1
-
-  //   if (newMonth > 0) {
-  //     setDisplayMonth((displayMonth) => {
-  //       return (displayMonth - 1)
-  //     })
-  //   } else {
-  //     setDisplayMonth(new Date().getMonth() + 1)
-  //   }
-  // }
-
-  // console.log(firebaseConfig)
-
   return (
     <div className="App">
       
@@ -78,11 +94,13 @@ function App() {
       />
 
       <div id='map'>
-        <Map
+
+        {dataLoaded ? <Map
+        data={data}
         displayMonth={displayMonth}
         premiseType={displayStatus}
         productFilterState={productFilter}
-        />
+        /> : <img id='spinner' src={spinner} alt='Loading' />}
       </div>
 
     </div>

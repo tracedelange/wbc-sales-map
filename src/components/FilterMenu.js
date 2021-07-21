@@ -6,8 +6,6 @@ import products from '../products.js'
 import {withStyles} from '@material-ui/core/styles'
 
 
-import CustomCheck from './CustomChecks';
-
 
 const SelectedMenuItem = withStyles((theme) => ({
     root: {
@@ -66,22 +64,22 @@ export default function FilterMenu({handleFilterItemClick, productFilterState}) 
 
   return (
     <div>
+      <div id='filter'>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Filter Products
       </Button>
-      <div id='filter'>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
 
-          <MenuItem key='REMOVE' onClick={() => handleItemClick('none')}>{'Clear Filter'}</MenuItem>
-          {productMenuItems}
+            <MenuItem key='REMOVE' onClick={() => handleItemClick('none')}>{'Clear Filter'}</MenuItem>
+            {productMenuItems}
 
-      </Menu>
+        </Menu>
       </div>
 
 

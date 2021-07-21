@@ -3,14 +3,12 @@ All notable changes to this project will be documented in this file.
 This project is under development by Trace DeLange, any questions can be directed to tracedelange@me.com
 
 ## [Unreleased / In Development]
-- Favicon needs to be changed from the default react-app
-- Add a loading icon to be displayed while backend data is being fetched
 - Code to be cleaned up and polished for full production quality
 - Additional styling rules to increase responsivity on mobile browsers.
 - If Locher vendor premise type can be acquired, filtering by premise type will be possible.
 - Automatic data processing of new YTD sales reports.
-- Desired Heroku hosting strength to be discussed.
-- Domain name to be discussed.
+- Info-box styling changes suggested should be implemented as well as un-abbreviated product names
+- Add custom styling to material component to match rest of webApp
 
 ## [v0.1] - 2021-07-16
 ### Added
@@ -36,3 +34,23 @@ This project is under development by Trace DeLange, any questions can be directe
 - Moved all api keys out of the application onto a local .env file which is automatically imported as environmental variables by react
 - Added api keys to Heroku private vars for security.
 - Firebase backend security rules changed to read only
+
+
+
+## [v0.2] - Unreleased
+
+### Added
+- GoDaddy Domain Name subroute added. Site can now be visited at find.waconiabrewing.com
+- Loading icon added to occupy screen during back-end fetching
+
+### Changed
+- Backend hosting upgraded to 'Hobby' level Dyno on heroku. Several features enabled as well as much more responsive load time on webapp.
+- CSS media query rules
+- Favicon copied from main website
+
+### Removed
+- Removed unused components (Checkboxes, Customcheckboxes)
+- Removed /private as all keys are now stored in local, gitIgnored .env
+- Removed unused assets
+
+

@@ -1,6 +1,6 @@
 import logo from '../assets/images/wbc_sailwhite.png';
 import months from '../months.js'
-import Checkboxes from './Checkboxes';
+
 import ProductFilter from './ProductFilter'
 import {useState} from 'react'
 
