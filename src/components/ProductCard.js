@@ -10,7 +10,7 @@ const ProductCard = ({product}) => {
     return (
         <>
         <li>
-            <span>{productName}</span>, as of <span>{saleDate}</span>
+            <span>{productName}</span> - <span>{saleDate}</span>
         </li>
         </>
     )

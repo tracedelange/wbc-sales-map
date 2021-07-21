@@ -66,7 +66,7 @@ function App() {
         // setDataLoaded(true)
 
     })
-    console.log('this should only run once at the beginning and every time the month button is clicked')
+    console.log('this should only run once at the beginning.')
   }, []);
 
 

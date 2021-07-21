@@ -7,15 +7,22 @@ import IconSource from '../assets/images/pin-icon.png'
 import ProductFilter from './ProductFilter';
 import testObject from '../testObject';
 import WBCLogo from '../assets/images/logo-marker-smaller.png'
+import { FilterState } from 'pixi.js';
 
 
 
 const Map = ({premiseType, displayMonth, productFilterState, data}) => {
 
+    if (productFilterState){
+        console.log(productFilterState)
+    }
 
     const [selectedMarker, setSelectedMarker] = useState('');
 
     const [productsCarried, setProductsCarried] = useState([]);
+
+    //If filter state is changed, close info window if it is open
+    useEffect(()=> { setSelectedMarker(null) }, [productFilterState])
 
     const handleMarkerClick = (dataPoint, pos) => {
 
@@ -47,36 +54,10 @@ const Map = ({premiseType, displayMonth, productFilterState, data}) => {
         setProductsCarried(newProducts)
     }
   
-    // const [data, setData] = useState({})
-    
-
-    // useEffect(() => { 
-
-    //     let today = new Date();
-    //     let yy = today.getFullYear()
-    //     let currentMonthRoute = `${displayMonth}_${yy}`
-
-    //     getRangeFromDatabase(currentMonthRoute, (data) => {
-
-    //         setData((existingData) => {
-    //             return {...existingData,
-    //             ...data}
-    //         })
-    //     })
-    //     let previousMonthRoute = `${displayMonth - 1}_${yy}`
-    //     getRangeFromDatabase(previousMonthRoute, (data) => {
-    //         setData((existingData) => {
-    //             return {...existingData,
-    //             ...data}
-    //         })
-
-    //         handleDataLoaded()
-
-    //     })
-    //     console.log('this should only run once at the beginning and every time the month button is clicked')
-    //   }, []);
 
       let productArray = (productsCarried).map((product) => {
+
+        
           
         return <ProductCard key={product.productName} product={product} />
 
@@ -102,12 +83,10 @@ const Map = ({premiseType, displayMonth, productFilterState, data}) => {
         <GoogleMap
           zoom={mapConfig.zoom}
           center={mapConfig.center}
-          mapIds={mapConfig.mapId}
           mapContainerStyle={mapConfig.styles}
           onClick={handleMapClick}
-        //   onMouseOut={handleMapClick}
-        //   streetView={false}
           options={{
+               mapId: mapConfig.mapId,
                gestureHandling: "greedy",
                fullscreenControl: false,
                streetViewControl: false,
@@ -165,14 +144,15 @@ const Map = ({premiseType, displayMonth, productFilterState, data}) => {
                 lng: selectedMarker.latLong.lng
             }}>
                 <div className='info'>
-                <h1>
-                    {selectedMarker.disName}
+                    <h1>
+                        {selectedMarker.disName}
 
-                </h1>
-                {/* <h2>Sale Type: {(selectedMarker.premiseType).replace(/([a-z](?=[A-Z]))/g, '$1 ')}</h2> */}
-                {productArray}
-                <p>Make sure to call ahead and make sure your vendor has our product in stock!
-                We cannot determine where our beer is in stock, only where it has been sold.</p>
+                    </h1>
+                    {/* <h2>Sale Type: {(selectedMarker.premiseType).replace(/([a-z](?=[A-Z]))/g, '$1 ')}</h2> */}
+
+                    {productArray}
+
+                    <p>Make sure to call ahead and verify your vendor still has our product in stock!</p>
                 </div>
             </InfoWindow>
         )}

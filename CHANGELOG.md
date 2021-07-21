@@ -9,6 +9,7 @@ This project is under development by Trace DeLange, any questions can be directe
 - Automatic data processing of new YTD sales reports.
 - Info-box styling changes suggested should be implemented as well as un-abbreviated product names
 - Add custom styling to material component to match rest of webApp
+- Firebase dev warnings need to be removed/ fixed
 
 ## [v0.1] - 2021-07-16
 ### Added
@@ -37,7 +38,7 @@ This project is under development by Trace DeLange, any questions can be directe
 
 
 
-## [v0.2] - Unreleased
+## [v0.2] - 2021-07-21
 
 ### Added
 - GoDaddy Domain Name subroute added. Site can now be visited at find.waconiabrewing.com
@@ -52,5 +53,11 @@ This project is under development by Trace DeLange, any questions can be directe
 - Removed unused components (Checkboxes, Customcheckboxes)
 - Removed /private as all keys are now stored in local, gitIgnored .env
 - Removed unused assets
+
+
+## [v0.3] - Unreleased
+
+### Added
+- If info window is open and filter is clicked, info window will close
 
 

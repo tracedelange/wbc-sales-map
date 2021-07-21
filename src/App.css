@@ -6,6 +6,7 @@
   justify-content: space-evenly;
   align-items: center;
 
+
 }
 
 #check-boxes {
@@ -29,7 +30,7 @@ h1, h2 {
 #spinner {
 
   display: block;
-  margin-left: 40vw;
+  margin-left: 45vw;
   margin-top: 30vh;
 
   
@@ -80,9 +81,12 @@ img {
   margin-left: 20%;
   font-size: 12px;
   font-weight: 900;
+  font-style: italic;
 
 }
-
+/* .info ul {
+  font-weight: 100;
+} */
 
 .info {
   text-align: center;
@@ -98,7 +102,7 @@ img {
 
 .info span {
 
-  font-weight: bold;
+  font-weight: 400;
 
 }
 
@@ -107,7 +111,7 @@ img {
 .info li {
 
   list-style: none;
-  font-style: italic;
+  /* font-style: italic; */
   font-size: 20px;
 
 }
@@ -158,76 +162,52 @@ label {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) { 
-
-
-  #filter {
-
-  font-size: 10px;
-
+  
+  .App {
+    position: fixed;
   }
 
+  #filter {
+    font-size: 10px;
+  }
   img {
     width: 15%;
   }
-
- html, body {
-
-  overflow: hidden;
-
+  html, body {
+    overflow: hidden;
  }
-
-
   #header h1 {
-
     font-size: 25px;
-    /* color: red; */
     font-weight: 500;
-
   }
-
   #header {
-
     position: static;
     top: 10%;
-
   }
-
   #map {
-
     height: 100%;
-
   }
-
   .info h1 {
-
     font-weight: 400;
-
   }
-
   .info span {
-
     font-weight: 400;
-
   }
-
   .info p {
-
     font-weight: 200;
-
   }
-
  }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-  /* @media only screen and (min-width: 600px) { */
-    /* #header h1 { */
+  /* @media only screen and (min-width: 600px) { 
+    #header h1 {
 
-      /* font-size: 10px; */
-      /* color: red; */
+      font-size: 10px;
+      color: red;
   
   
-    /* } */
-  /* } */
+    }
+  } */
 
 
 
