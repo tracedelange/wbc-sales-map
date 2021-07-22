@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/database'
 
 
 const apiKey = process.env.REACT_APP_APIKEY;
@@ -20,7 +21,7 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig);
-console.log('firebase connection established')
+// console.log('Connection established')
 const database = firebase.database()
 
 export default database;

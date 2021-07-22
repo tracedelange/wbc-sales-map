@@ -4,12 +4,11 @@ This project is under development by Trace DeLange, any questions can be directe
 
 ## [Unreleased / In Development]
 - Code to be cleaned up and polished for full production quality
-- Additional styling rules to increase responsivity on mobile browsers.
 - If Locher vendor premise type can be acquired, filtering by premise type will be possible.
 - Automatic data processing of new YTD sales reports.
 - Info-box styling changes suggested should be implemented as well as un-abbreviated product names
-- Add custom styling to material component to match rest of webApp
-- Firebase dev warnings need to be removed/ fixed
+- Incorporate self-distribution data
+- Edit entries to only show month to date
 
 ## [v0.1] - 2021-07-16
 ### Added
@@ -60,8 +59,16 @@ This project is under development by Trace DeLange, any questions can be directe
 - Fixed bug where header disappears on info window exit
 
 
-## [v0.3] - Unreleased
+## [v0.3] - 2021-07-22
 
 ### Added
+- Logo is a link to the website
+- Added Material-UI component css rules, filter menu now follows fonts for the rest of the site. Also conditionally resizes using mediaQuery hook.
+
+### Changes
+- Edited a bunch of css rules and got the map to fully occupy viewport on desktop and mobile. Styling nearly complete, just need to discuss new high res pins.
+- Changed firebase imports to get rid of development errors
+- Cleaned up code and removed unused functions, console logs, imports, etc.
+
 
 
