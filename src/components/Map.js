@@ -25,6 +25,8 @@ const Map = ({ premiseType, productFilterState, data }) => {
             reactKey: Object.keys(dataPoint['orders'])[0]
         }
 
+        // console.log(adjustedDataPoint.disName)
+
         setSelectedMarker(adjustedDataPoint)
 
         let newProducts = []
@@ -114,7 +116,8 @@ const Map = ({ premiseType, productFilterState, data }) => {
                         }}>
                         <div className='info'>
                             <h1>
-                                {selectedMarker.disName}
+                                {/* {selectedMarker.disName} */}
+                                {selectedMarker.disName === undefined ? selectedMarker.cusName : selectedMarker.disName} {/* If display name exists, display it, else display the default customer name */}
                             </h1>
                             {/* <h2>Sale Type: {(selectedMarker.premiseType).replace(/([a-z](?=[A-Z]))/g, '$1 ')}</h2> */}
                             {productArray}

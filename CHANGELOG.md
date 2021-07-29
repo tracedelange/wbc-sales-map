@@ -71,4 +71,12 @@ This project is under development by Trace DeLange, any questions can be directe
 - Cleaned up code and removed unused functions, console logs, imports, etc.
 
 
+## [v0.3.1] - 2021-07-29
+
+### Added
+- Function created to import new JJ Taylor reports. 
+
+### Changes 
+- Added conditional display for info windows, if display name exists display it, if it does not yet exist, display the report customer name 
+
 
