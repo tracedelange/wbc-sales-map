@@ -74,9 +74,10 @@ This project is under development by Trace DeLange, any questions can be directe
 ## [v0.3.1] - 2021-07-29
 
 ### Added
-- Function created to import new JJ Taylor reports. 
+- Function created to import new JJ Taylor and Locher reports
 
 ### Changes 
 - Added conditional display for info windows, if display name exists display it, if it does not yet exist, display the report customer name 
+- Added month to date order rendering.
 
 
