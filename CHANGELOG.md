@@ -80,4 +80,12 @@ This project is under development by Trace DeLange, any questions can be directe
 - Added conditional display for info windows, if display name exists display it, if it does not yet exist, display the report customer name 
 - Added month to date order rendering.
 
+## [v0.3.2] - 2021-08-02
+
+## Added
+- Copyright claim and footer added for mobile and web versions
+
+## Changes
+- Edits to pin model, could not get pin resizing to work and more pressing things to take care of
+
 

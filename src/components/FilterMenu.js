@@ -77,6 +77,7 @@ export default function FilterMenu({ handleFilterItemClick, productFilterState }
         >
           <MenuItem className={classes.items} key='REMOVE' onClick={() => handleItemClick('none')}>{'Clear Filter'}</MenuItem>
           {productMenuItems}
+          {/* <MenuItem className={classes.items} key='LEGAL' >{'All Rights Reserved'}</MenuItem> */}
         </Menu>
       </div>
     </div>

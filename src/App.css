@@ -5,20 +5,12 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
-
 }
 
 #check-boxes {
-
   background: white;
-
 }
-#map {
 
-  height: 60%;
-
-}
 
 h1, h2 {
   color: white;
@@ -36,6 +28,15 @@ h1, h2 {
   
 }
 
+#footer {
+  height: 4vh;
+  text-align: center;
+  background-color: #000000;
+  margin: 0%;
+  color: white;
+
+  font-size: 20px
+}
 
 
 
@@ -96,24 +97,16 @@ body {
 
 .info h1 {
   color: #000000;
-
   font-size: 32px;
 }
 
 .info span {
-
   font-weight: 400;
-
 }
 
-
-
 .info li {
-
   list-style: none;
-  /* font-style: italic; */
   font-size: 20px;
-
 }
 
 @font-face {
@@ -166,6 +159,10 @@ label {
   .App {
     position: fixed;
     width: 100%;
+  }
+
+  #footer {
+    font-size: 16px;
   }
 
 

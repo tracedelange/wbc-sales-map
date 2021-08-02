@@ -59,8 +59,8 @@ const Map = ({ premiseType, productFilterState, data }) => {
     }
 
     return (
-
         <LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}>
+
             <GoogleMap
                 zoom={mapConfig.zoom}
                 center={mapConfig.center}
@@ -90,10 +90,20 @@ const Map = ({ premiseType, productFilterState, data }) => {
                     if (premiseType !== 'Both') {
                         if (data[keyName]['premiseType'] === premiseType.replace(' ', '')) {
                             return <Marker optimized={true} icon={IconSource} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
-                        }
+                        } //I think this code block is depreciated because of premise filter not being used
                     } else {
                         if (productFilterState.length === 0) {
-                            return <Marker optimized={true} icon={IconSource} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
+                            return (
+                                <Marker
+                                    optimized={true}
+                                    icon={{
+                                        url: IconSource,
+                                    }}
+                                    opacity={.95}
+                                    onClick={() => { handleMarkerClick(data[keyName], pos) }}
+                                    key={keyName}
+                                    position={pos}
+                                />)
                         } else {
                             let keys = Object.keys(data[keyName]['orders'])
                             for (let key of keys) {

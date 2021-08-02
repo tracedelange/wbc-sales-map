@@ -3,6 +3,7 @@ import Header from './Header'
 import { useState, useEffect } from 'react';
 import spinner from '../assets/images/loading.gif'
 import getRangeFromDatabase from '../firebaseFunctions';
+import Footer from './Footer';
 
 function App() {
 
@@ -11,19 +12,6 @@ function App() {
   const [dataLoaded, setDataLoaded] = useState(false)
   const [data, setData] = useState({})
   const displayMonth = new Date().getMonth() + 1
-
-
-  // const genCutoffDay = (dayMod) => {
-  //   let today = new Date();
-  //   let day = today.getDate()
-
-  //   if ((day - dayMod) > 0){
-  //     return (day - dayMod)
-  //   } else {
-  //     return (1)
-  //   }
-
-  // }
 
   const splitDate = (date) => {
 
@@ -153,6 +141,7 @@ function App() {
           productFilterState={productFilter}
         /> : <img id='spinner' src={spinner} alt='Loading' />}
       </div>
+      {dataLoaded ? <Footer />:null}
 
     </div>
   );
