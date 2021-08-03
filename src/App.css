@@ -154,7 +154,17 @@ label {
 
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) { 
+@media only screen and (max-width: 600px) {
+
+
+  #spinner {
+
+    width: 20vw;
+    margin-left: 40vw;
+    margin-top: 32vh;
+  
+    
+  }
   
   .App {
     position: fixed;

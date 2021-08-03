@@ -89,3 +89,16 @@ This project is under development by Trace DeLange, any questions can be directe
 - Edits to pin model, could not get pin resizing to work and more pressing things to take care of
 
 
+## [1.0] - 2021-08-03
+
+### Notes
+- I think we're ready to go public with this one. 
+
+### Added
+- Self distribution data has been added to the backend and is now being presented on the front.
+- If a browser attempts to visit with an http request, the app will automatically re-route to https for a secure connection
+- Added rules to clean up product names and create a more uniform reading experince across distributers.
+- Added several database management functions (Not yet comitted)
+
+### Changed
+- Aligned the spinner logo for better viewing on mobile
