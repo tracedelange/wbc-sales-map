@@ -11,6 +11,13 @@
   background: white;
 }
 
+div#filter {
+  /* text-align: center; */
+  /* padding: 1%; */
+  /* max-width: 17%; */
+  /* align-content: center; */
+  /* align-items: baseline; */
+}
 
 h1, h2 {
   color: white;
@@ -84,6 +91,10 @@ body {
   font-weight: 900;
   font-style: italic;
 
+}
+
+#active-filter {
+  text-decoration: underline;
 }
 /* .info ul {
   font-weight: 100;
@@ -177,7 +188,7 @@ label {
 
 
   #logo {
-    width: 22vw;
+    width: 18vw;
     margin-top: 1vh;
   }
   html, body {
@@ -185,7 +196,7 @@ label {
     width: 100%;
  }
   #header h1 {
-    margin-left: 2vw;
+    /* margin-left: 1vw; */
     font-size: 6vw;
     font-weight: 500;
   }

@@ -8,9 +8,11 @@ import Footer from './Footer';
 function App() {
 
   const [productFilter, setProductFilter] = useState([])
-  const [displayStatus, setDisplayStatus] = useState('Both')
+
   const [dataLoaded, setDataLoaded] = useState(false)
   const [data, setData] = useState({})
+  const [premiseState, setPremiseState] = useState('Both')
+
   const displayMonth = new Date().getMonth() + 1
 
   const splitDate = (date) => {
@@ -37,6 +39,18 @@ function App() {
       return split_date
     }
   }
+
+  const adjustPremiseFilterState = () => {
+
+    if (premiseState === 'Both') {
+      setPremiseState('Off Premise')
+    } else if (premiseState === 'Off Premise') {
+      setPremiseState('On Premise')
+    } else if (premiseState === 'On Premise') {
+      setPremiseState('Both')
+    }
+  }
+
 
   const adjustFilterList = (item) => {
     if (item === 'none') {
@@ -116,15 +130,15 @@ function App() {
     })
   }, []);
 
-  const onButtonClick = () => {
-    if (displayStatus === 'Both') {
-      setDisplayStatus('Off Premise')
-    } else if (displayStatus === 'Off Premise') {
-      setDisplayStatus('On Premise')
-    } else if (displayStatus === 'On Premise') {
-      setDisplayStatus('Both')
-    }
-  }
+  // const onButtonClick = () => {
+  //   if (displayStatus === 'Both') {
+  //     setDisplayStatus('Off Premise')
+  //   } else if (displayStatus === 'Off Premise') {
+  //     setDisplayStatus('On Premise')
+  //   } else if (displayStatus === 'On Premise') {
+  //     setDisplayStatus('Both')
+  //   }
+  // }
 
   return (
     <div className="App">
@@ -132,12 +146,14 @@ function App() {
       <Header
         productFilterState={productFilter}
         handleFilterItemClick={adjustFilterList}
+        premiseFilterState={premiseState}
+        handlePremiseClick={adjustPremiseFilterState}
       />
 
       <div id='map'>
         {dataLoaded ? <Map
           data={data}
-          premiseType={displayStatus}
+          premiseType={premiseState}
           productFilterState={productFilter}
         /> : <img id='spinner' src={spinner} alt='Loading' />}
       </div>

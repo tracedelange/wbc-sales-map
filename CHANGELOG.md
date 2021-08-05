@@ -89,7 +89,7 @@ This project is under development by Trace DeLange, any questions can be directe
 - Edits to pin model, could not get pin resizing to work and more pressing things to take care of
 
 
-## [1.0] - 2021-08-03
+## [v1.0] - 2021-08-03
 
 ### Notes
 - I think we're ready to go public with this one. 
@@ -102,3 +102,14 @@ This project is under development by Trace DeLange, any questions can be directe
 
 ### Changed
 - Aligned the spinner logo for better viewing on mobile
+
+## [v1.1] - 2021-08-05
+
+### Added
+- Locher Bros distributer data now present in backend.
+- Premise type filter added to map.
+- Blue pin was added to signify on site product availibility.
+
+### Changed
+- Product filter now shows which product is being searched for, keep eyes out for styling bugs especially on mobile.
+

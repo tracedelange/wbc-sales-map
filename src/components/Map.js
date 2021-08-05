@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import mapConfig from '../map-config';
 import ProductCard from './ProductCard';
-import IconSource from '../assets/images/pin-icon.png'
+import RedIconSource from '../assets/images/pin-icon.png'
+import BlueIconSource from '../assets/images/blue-pin-icon.png'
 import testObject from '../testObject';
 import WBCLogo from '../assets/images/logo-marker-smaller.png'
+import { red } from '@material-ui/core/colors';
 
 const Map = ({ premiseType, productFilterState, data }) => {
 
@@ -13,7 +15,7 @@ const Map = ({ premiseType, productFilterState, data }) => {
     const [productsCarried, setProductsCarried] = useState([]);
 
     //If filter state is changed, close info window if it is open
-    useEffect(() => { setSelectedMarker(null) }, [productFilterState])
+    useEffect(() => { setSelectedMarker(null) }, [productFilterState, premiseType])
 
     const handleMarkerClick = (dataPoint, pos) => {
 
@@ -89,27 +91,46 @@ const Map = ({ premiseType, productFilterState, data }) => {
 
                     if (premiseType !== 'Both') {
                         if (data[keyName]['premiseType'] === premiseType.replace(' ', '')) {
-                            return <Marker optimized={true} icon={IconSource} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
-                        } //I think this code block is depreciated because of premise filter not being used
+
+                            if (productFilterState.length === 0) {
+                                let markerColor = data[keyName]['premiseType'] === 'OffPremise' ? RedIconSource : BlueIconSource;
+                                return <Marker optimized={true} icon={markerColor} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
+                            } else {
+                                let keys = Object.keys(data[keyName]['orders'])
+                                for (let key of keys) {
+                                    let product = data[keyName]['orders'][key]['productName']
+                                    if (product.split(' ').some((e) => testObject[productFilterState].includes(e))) {
+                                        let markerColor = data[keyName]['premiseType'] === 'OffPremise' ? RedIconSource : BlueIconSource;
+                                        return <Marker optimized={true} icon={markerColor} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
+                                    }
+                                }
+                            }
+                        }
                     } else {
-                        if (productFilterState.length === 0) {
+                        if (productFilterState.length === 0) { //No filter present
+                            //Determine if the marker is blue or red
+                            // console.log(data[keyName])
+
+                            let markerColor = data[keyName]['premiseType'] === 'OffPremise' ? RedIconSource : BlueIconSource;
+
                             return (
                                 <Marker
                                     optimized={true}
                                     icon={{
-                                        url: IconSource,
+                                        url: markerColor,
                                     }}
                                     opacity={.95}
                                     onClick={() => { handleMarkerClick(data[keyName], pos) }}
                                     key={keyName}
                                     position={pos}
                                 />)
-                        } else {
+                        } else { // Filter present
                             let keys = Object.keys(data[keyName]['orders'])
                             for (let key of keys) {
                                 let product = data[keyName]['orders'][key]['productName']
                                 if (product.split(' ').some((e) => testObject[productFilterState].includes(e))) {
-                                    return <Marker optimized={true} icon={IconSource} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
+                                    let markerColor = data[keyName]['premiseType'] === 'OffPremise' ? RedIconSource : BlueIconSource;
+                                    return <Marker optimized={true} icon={markerColor} onClick={() => { handleMarkerClick(data[keyName], pos) }} key={keyName} position={pos} />
                                 }
                             }
                         }
