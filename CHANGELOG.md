@@ -9,6 +9,8 @@ This project is under development by Trace DeLange, any questions can be directe
 - Info-box styling changes suggested should be implemented as well as un-abbreviated product names
 - Incorporate self-distribution data
 - Edit entries to only show month to date
+- Refactor filter as routes that can be accessed directly from link (QR Codes linking directly where to find a product)
+
 
 ## [v0.1] - 2021-07-16
 ### Added
@@ -113,3 +115,11 @@ This project is under development by Trace DeLange, any questions can be directe
 ### Changed
 - Product filter now shows which product is being searched for, keep eyes out for styling bugs especially on mobile.
 
+[v1.2] - 2021-08-09
+
+### Added
+- Added link to email salesmap account in footer should there be an issue
+- Added Final Circle Shandy to filter list
+
+### Fixed
+- Fixed a bug where two back end requests for two different months were overwriting each other and failing to display accurate data.

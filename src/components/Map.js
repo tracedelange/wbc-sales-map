@@ -35,7 +35,7 @@ const Map = ({ premiseType, productFilterState, data }) => {
         let newProductsNames = []
 
         let keys = Object.keys(dataPoint['orders'])
-
+        console.log(dataPoint['orders'])
         keys.slice(0).reverse().map((key) => {
 
             if (newProductsNames.includes(dataPoint['orders'][key]['productName'])) {
@@ -48,7 +48,6 @@ const Map = ({ premiseType, productFilterState, data }) => {
 
         setProductsCarried(newProducts)
     }
-
 
     let productArray = (productsCarried).map((product) => {
 

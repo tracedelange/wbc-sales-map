@@ -9,7 +9,8 @@ const testObject = {
     'Wactown Wheat' : ['Wheat'],
     'Carver County Kolsch' : ['CARVER', 'Carver'],
     'Raspberry Blonde' : ['Raspberry', 'RASP'],
-    'Flashpoint Cream Ale' : ['FLASHPT', 'Flashpoint']
+    'Flashpoint Cream Ale' : ['FLASHPT', 'Flashpoint'],
+    'Final Circle Shandy' : ['FINAL', 'Final']
 
 
 }

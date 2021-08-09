@@ -7,6 +7,8 @@ import Footer from './Footer';
 
 function App() {
 
+
+
   const [productFilter, setProductFilter] = useState([])
 
   const [dataLoaded, setDataLoaded] = useState(false)
@@ -70,12 +72,7 @@ function App() {
 
     getRangeFromDatabase(currentMonthRoute, (data) => {
 
-      setData((existingData) => {
-        return {
-          ...existingData,
-          ...data
-        }
-      })
+      setData(data)
     })
 
     let previousMonthRoute = `${displayMonth - 1}_${yy}`
@@ -121,24 +118,23 @@ function App() {
       })
 
       setData((existingData) => {
-        return {
-          ...existingData,
-          ...data
+        for (let customer_key of Object.keys(data)){
+
+          if (!Object.keys(existingData).includes(customer_key)){
+            existingData[customer_key] = data[customer_key]
+          } else { //both customers exist in each object. Iterate over the orders for the new report and add them each to the old report.
+            for (let order_key of Object.keys(data[customer_key]['orders'])) {
+              existingData[customer_key]['orders'][order_key] = data[customer_key]['orders'][order_key]
+            }
+          }
         }
+
+        return existingData //Awesome! Now the two back end requests don't overwrite each other and play nice.
+
       })
       setTimeout(() => [setDataLoaded(true)], 500)
     })
   }, []);
-
-  // const onButtonClick = () => {
-  //   if (displayStatus === 'Both') {
-  //     setDisplayStatus('Off Premise')
-  //   } else if (displayStatus === 'Off Premise') {
-  //     setDisplayStatus('On Premise')
-  //   } else if (displayStatus === 'On Premise') {
-  //     setDisplayStatus('Both')
-  //   }
-  // }
 
   return (
     <div className="App">
