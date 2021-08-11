@@ -3,12 +3,8 @@ All notable changes to this project will be documented in this file.
 This project is under development by Trace DeLange, any questions can be directed to tracedelange@me.com
 
 ## [Unreleased / In Development]
-- Code to be cleaned up and polished for full production quality
-- If Locher vendor premise type can be acquired, filtering by premise type will be possible.
 - Automatic data processing of new YTD sales reports.
 - Info-box styling changes suggested should be implemented as well as un-abbreviated product names
-- Incorporate self-distribution data
-- Edit entries to only show month to date
 - Refactor filter as routes that can be accessed directly from link (QR Codes linking directly where to find a product)
 
 
