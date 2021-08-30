@@ -150,7 +150,7 @@ const Map = ({ premiseType, productFilterState, data }) => {
                                 {selectedMarker.disName === undefined ? selectedMarker.cusName : selectedMarker.disName} {/* If display name exists, display it, else display the default customer name */}
                             </h1>
                             {/* <h2>Sale Type: {(selectedMarker.premiseType).replace(/([a-z](?=[A-Z]))/g, '$1 ')}</h2> */}
-                            {productArray}
+                            {productArray.reverse()}
                             <p>Make sure to call ahead and verify your vendor still has our product in stock!</p>
                         </div>
                     </InfoWindow>

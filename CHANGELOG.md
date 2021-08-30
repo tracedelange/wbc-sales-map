@@ -119,3 +119,9 @@ This project is under development by Trace DeLange, any questions can be directe
 
 ### Fixed
 - Fixed a bug where two back end requests for two different months were overwriting each other and failing to display accurate data.
+
+## [v1.2] - 2021-08-30
+
+### Changed
+- Refactored back end call structure. Date ranges can now be edited much more easily and year end calendar changes should go smoothly.
+- Reversed order of Infowindow products rendering to put most recent products at the top of the list.
