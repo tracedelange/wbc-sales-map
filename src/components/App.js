@@ -85,14 +85,14 @@ function App() {
     for (let i = 0; i < (data_resolution.month); i++) {
 
 
-      console.log(displayMonth)
+      // console.log(displayMonth)
 
       if ((displayMonth - i) < 1) {
 
         let month = (displayMonth - i) + 12
         let year = yy - 1
 
-        console.log(month)
+        // console.log(month)
 
         getRangeFromDatabaseAndAddToState(month, year, new_data)
 
@@ -102,14 +102,13 @@ function App() {
         let month = (displayMonth - i)
         let year = yy
 
-        console.log(displayMonth)
+        // console.log(displayMonth)
 
         getRangeFromDatabaseAndAddToState(month, year, new_data)
       }
     }
   }, [])
 
-  console.log(data)
   return (
     <div className="App">
 
