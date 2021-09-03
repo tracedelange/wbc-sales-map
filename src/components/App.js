@@ -24,23 +24,23 @@ function App() {
 
   const getRangeFromDatabaseAndAddToState = async (month, year, new_data, counter) => {
 
-    // console.log(month)
-    // console.log(year)
-
     let route = `${month}_${year}`
     getRangeFromDatabase(route, (resp) => {
-      Object.keys(resp).forEach((customerKey) => {
-        if (Object.keys(new_data).includes(customerKey)) {
-          //New Data contains customer key
-          // console.log('new keys contains customer key')
-          //Iterate over customer key resp and add each order to the new_data object
-          Object.keys(resp[customerKey]['orders']).forEach((orderKey) => {
-            new_data[customerKey]['orders'][orderKey] = resp[customerKey]['orders'][orderKey]
-          })
-        } else {
-          new_data[customerKey] = resp[customerKey]
-        }
-      })
+
+      if (resp !== null) { 
+        Object.keys(resp).forEach((customerKey) => {
+          if (Object.keys(new_data).includes(customerKey)) {
+            //New Data contains customer key
+            // console.log('new keys contains customer key')
+            //Iterate over customer key resp and add each order to the new_data object
+            Object.keys(resp[customerKey]['orders']).forEach((orderKey) => {
+              new_data[customerKey]['orders'][orderKey] = resp[customerKey]['orders'][orderKey]
+            })
+          } else {
+            new_data[customerKey] = resp[customerKey]
+          }
+        })
+      }
 
       setFetchCounter((fetchCounter) => fetchCounter + 1)
 
@@ -83,22 +83,33 @@ function App() {
     const new_data = {}
 
     for (let i = 0; i < (data_resolution.month); i++) {
+
+
+      console.log(displayMonth)
+
       if ((displayMonth - i) < 1) {
 
         let month = (displayMonth - i) + 12
         let year = yy - 1
 
+        console.log(month)
+
         getRangeFromDatabaseAndAddToState(month, year, new_data)
 
       } else {
+
+
         let month = (displayMonth - i)
         let year = yy
+
+        console.log(displayMonth)
+
         getRangeFromDatabaseAndAddToState(month, year, new_data)
       }
     }
   }, [])
 
-
+  console.log(data)
   return (
     <div className="App">
 
@@ -116,7 +127,7 @@ function App() {
           productFilterState={productFilter}
         /> : <img id='spinner' src={spinner} alt='Loading' />}
       </div>
-      {fetchCounter === data_resolution.month ? <Footer /> : null}
+      {fetchCounter === (data_resolution.month) ? <Footer /> : null}
 
     </div>
   );
