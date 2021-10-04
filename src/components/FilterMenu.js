@@ -5,26 +5,36 @@ import MenuItem from '@material-ui/core/MenuItem';
 import products from '../products.js'
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import useMobileMediaQuery from './hooks/useMobileMediaQuery'
+import ProductFilter from './ProductFilter.js';
 
 const useStyles = makeStyles({
   mobile: {
-    fontSize: 13,
+    fontSize: "1vh",
+    // maxWidth: '10%',
+    padding: '1%',
     fontFamily: 'oswald',
+    textAlign: 'center',
+    maxWidth: "16vw",
+    minWidth: '16vw',
   },
   items: {
 
     fontFamily: 'oswald',
   },
   static: {
-    fontSize: 25,
+    maxWidth: "16vw",
+    minWidth: '16vw',
+    textAlign: 'center',
+    fontSize: '1vw',
     fontFamily: 'oswald',
+    // overflow: 'hide',
   }
 })
 
 const SelectedMenuItem = withStyles((theme) => ({
   root: {
     backgroundColor: 'black',
-    fontWeight: '700',
+    fontWeight: '500',
     color: 'white',
     '&:hover': {
       backgroundColor: '#bf0000'
@@ -53,7 +63,6 @@ export default function FilterMenu({ handleFilterItemClick, productFilterState }
 
     if (productFilterState.includes(item.name)) {
       //Remove from filter list 
-      console.log('present')
       return <SelectedMenuItem className={classes.items} key={item.key} onClick={() => handleItemClick(item.name)}>{item.name}</SelectedMenuItem>
 
     } else {
@@ -66,7 +75,7 @@ export default function FilterMenu({ handleFilterItemClick, productFilterState }
     <div>
       <div id='filter'>
         <Button className={isMobile ? classes.mobile : classes.static} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-          Filter Products
+          {productFilterState.length === 0 ? 'Product Filter' : productFilterState}
         </Button>
         <Menu
           id="simple-menu"
@@ -77,7 +86,7 @@ export default function FilterMenu({ handleFilterItemClick, productFilterState }
         >
           <MenuItem className={classes.items} key='REMOVE' onClick={() => handleItemClick('none')}>{'Clear Filter'}</MenuItem>
           {productMenuItems}
-          {/* <MenuItem className={classes.items} key='LEGAL' >{'All Rights Reserved'}</MenuItem> */}
+
         </Menu>
       </div>
     </div>

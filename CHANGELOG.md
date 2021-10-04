@@ -3,12 +3,10 @@ All notable changes to this project will be documented in this file.
 This project is under development by Trace DeLange, any questions can be directed to tracedelange@me.com
 
 ## [Unreleased / In Development]
-- Code to be cleaned up and polished for full production quality
-- If Locher vendor premise type can be acquired, filtering by premise type will be possible.
 - Automatic data processing of new YTD sales reports.
 - Info-box styling changes suggested should be implemented as well as un-abbreviated product names
-- Incorporate self-distribution data
-- Edit entries to only show month to date
+- Refactor filter as routes that can be accessed directly from link (QR Codes linking directly where to find a product)
+
 
 ## [v0.1] - 2021-07-16
 ### Added
@@ -89,7 +87,7 @@ This project is under development by Trace DeLange, any questions can be directe
 - Edits to pin model, could not get pin resizing to work and more pressing things to take care of
 
 
-## [1.0] - 2021-08-03
+## [v1.0] - 2021-08-03
 
 ### Notes
 - I think we're ready to go public with this one. 
@@ -102,3 +100,33 @@ This project is under development by Trace DeLange, any questions can be directe
 
 ### Changed
 - Aligned the spinner logo for better viewing on mobile
+
+## [v1.1] - 2021-08-05
+
+### Added
+- Locher Bros distributer data now present in backend.
+- Premise type filter added to map.
+- Blue pin was added to signify on site product availibility.
+
+### Changed
+- Product filter now shows which product is being searched for, keep eyes out for styling bugs especially on mobile.
+
+[v1.2] - 2021-08-09
+
+### Added
+- Added link to email salesmap account in footer should there be an issue
+- Added Final Circle Shandy to filter list
+
+### Fixed
+- Fixed a bug where two back end requests for two different months were overwriting each other and failing to display accurate data.
+
+## [v1.2] - 2021-08-30
+
+### Changed
+- Refactored back end call structure. Date ranges can now be edited much more easily and year end calendar changes should go smoothly.
+- Reversed order of Infowindow products rendering to put most recent products at the top of the list.
+
+## [1.2.1] - 2021-09-02 
+
+### Fixed
+- On the turn of the month there was no data to retrieve from the backend for the month of september. On first backend fetch the fetch function would return undefined and the loop would break because there was no data to work with. Additionally, the number of fetches incremented to the back end was only 2, because the first didn't return anything. This has been fixed by ensuring that even when a database snapshot is empty, the fetch callback function is still executed. In this context, the lack of that execution resulted in a permanent loading page. Additionally, there has been a null check included in the backend processing to add two layers of redundancy against a bug like this in the future.

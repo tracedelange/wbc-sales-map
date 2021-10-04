@@ -22,7 +22,8 @@ database.ref('/').child('orders-by-date').child(month).get()
     if (snapshot.exists()) {
         callback(snapshot.val())
     } else {
-        console.log("No data available");
+        // console.log("No data available");
+        callback(null)
     }
     }).catch((error) => {
     console.error(error);
