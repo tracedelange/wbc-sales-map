@@ -1,6 +1,6 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
-
+import 'firebase/app-check'
 
 const apiKey = process.env.REACT_APP_APIKEY;
 const authDomain = process.env.REACT_APP_AUTHDOMAIN;
@@ -21,6 +21,12 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig);
+
+const appCheck = firebase.appCheck();
+// Pass your reCAPTCHA v3 site key (public key) to activate(). Make sure this
+// key is the counterpart to the secret key you set in the Firebase console.
+appCheck.activate('6LcvVv0cAAAAAFoMia1sBPMAv67-kqUaqG8HSRxn', true);
+
 // console.log('Connection established')
 const database = firebase.database()
 
