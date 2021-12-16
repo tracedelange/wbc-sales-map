@@ -130,3 +130,12 @@ This project is under development by Trace DeLange, any questions can be directe
 
 ### Fixed
 - On the turn of the month there was no data to retrieve from the backend for the month of september. On first backend fetch the fetch function would return undefined and the loop would break because there was no data to work with. Additionally, the number of fetches incremented to the back end was only 2, because the first didn't return anything. This has been fixed by ensuring that even when a database snapshot is empty, the fetch callback function is still executed. In this context, the lack of that execution resulted in a permanent loading page. Additionally, there has been a null check included in the backend processing to add two layers of redundancy against a bug like this in the future.
+
+## [2.0] - UNRELEASED
+
+### TODO
+- Update MUI
+- Integrate custom MUI theme 
+- Integrate a redux store
+- Rewrite backend call to rails API
+- Refactor map components to implement better separation of concerns

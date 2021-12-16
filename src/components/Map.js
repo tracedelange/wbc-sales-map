@@ -15,7 +15,7 @@ const Map = ({ premiseType, productFilterState, data }) => {
     const [productsCarried, setProductsCarried] = useState([]);
 
     //If filter state is changed, close info window if it is open
-    useEffect(() => { setSelectedMarker(null) }, [productFilterState, premiseType])
+    // useEffect(() => { setSelectedMarker(null) }, [productFilterState, premiseType])
 
     const handleMarkerClick = (dataPoint, pos) => {
 
@@ -49,10 +49,10 @@ const Map = ({ premiseType, productFilterState, data }) => {
         setProductsCarried(newProducts)
     }
 
-    let productArray = (productsCarried).map((product) => {
+    // let productArray = (productsCarried).map((product) => {
 
-        return <ProductCard key={product.productName} product={product} />
-    })
+    //     return <ProductCard key={product.productName} product={product} />
+    // })
 
     const handleMapClick = () => {
         //if map is clicked and info window is open, close it
@@ -77,12 +77,12 @@ const Map = ({ premiseType, productFilterState, data }) => {
                 }}
             >
 
-                <Marker opacity={.8} zIndex={0} icon={WBCLogo} position={mapConfig.center} />
+                {/* <Marker opacity={.8} zIndex={0} icon={WBCLogo} position={mapConfig.center} /> */}
 
                 {/* Map over the list of orders for the last month and create a markers for each. */}
                 {/* this is where we can filter out results as well as a search function */}
 
-                {Object.keys(data).map(function (keyName, keyIndex) {
+                {/* {Object.keys(data).map(function (keyName, keyIndex) {
 
                     let lat = parseFloat(((data[keyName].latLong).split(',')[0]).split(' ')[1])
                     let long = parseFloat((data[keyName].latLong).split(',')[1].split(' ')[2])
@@ -134,7 +134,7 @@ const Map = ({ premiseType, productFilterState, data }) => {
                             }
                         }
                     }
-                })}
+                })} */}
                 {selectedMarker && (
                     <InfoWindow
                         onCloseClick={() => {
@@ -150,7 +150,7 @@ const Map = ({ premiseType, productFilterState, data }) => {
                                 {selectedMarker.disName === undefined ? selectedMarker.cusName : selectedMarker.disName} {/* If display name exists, display it, else display the default customer name */}
                             </h1>
                             {/* <h2>Sale Type: {(selectedMarker.premiseType).replace(/([a-z](?=[A-Z]))/g, '$1 ')}</h2> */}
-                            {productArray.reverse()}
+                            {/* {productArray.reverse()} */}
                             <p>Make sure to call ahead and verify your vendor still has our product in stock!</p>
                         </div>
                     </InfoWindow>
