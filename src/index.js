@@ -7,12 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import rootReducer from './reducers'
+import { ThemeProvider, StyledEngineProvider, createTheme, adaptV4Theme } from '@mui/material/styles';
+import { muiTheme } from './muiTheme'
 
 const store = createStore(rootReducer)
+const theme = createTheme(muiTheme)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </StyledEngineProvider>
   </Provider>,
   document.getElementById('root')
 );

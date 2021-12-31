@@ -1,3 +1,12 @@
+@font-face {
+  font-family: oswald;
+  src: url(./assets/fonts/Oswald-VariableFont_wght.ttf);
+}
+
+html, body {
+  font-family: 'oswald';
+}
+
 #header {
   height: 10vh;
   background-color: black;
@@ -5,6 +14,25 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+.product-text {
+  /* font-style: normal;
+  font */
+  font-family: 'oswald';
+  padding: 0%;
+  margin: 1%;
+  font-size: 2vmin;
+}
+
+#header > div {
+  width: 25%;
+}
+
+.header-logo {
+  text-align: center;
+  font-size: auto;
+  font-size: 3vw;
 }
 
 #check-boxes {
@@ -51,7 +79,7 @@ h1, h2 {
 
 #header h1 {
   /* margin-left: 18%; */
-  font-size: 64px;
+  /* font-size: 64px; */
   /* flex-grow: 2; */
 }
 #header h2 {
@@ -82,12 +110,8 @@ body {
 #footer a {
   color: white;
 }
+.warning {
 
-.info p {
-
-  /* width: 50%; */
-  /* text-align: center; */
-  /* right: 25%; */
   text-align: center;
   margin-right: 20%;
   margin-left: 20%;
@@ -96,6 +120,7 @@ body {
   font-style: italic;
 
 }
+
 
 #active-filter {
   text-decoration: underline;
@@ -106,8 +131,6 @@ body {
 
 .info {
   text-align: center;
-
-
 }
 
 .info h1 {
@@ -115,19 +138,33 @@ body {
   font-size: 32px;
 }
 
-.info span {
-  font-weight: 400;
-}
+/* .info span { */
+  /* font-weight: 400; */
+/* } */
 
-.info li {
+/* .info li { */
+  /* list-style: none; */
+  /* font-size: 20px; */
+/* } */
+
+.info-window-list {
   list-style: none;
-  font-size: 20px;
+  padding: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
-@font-face {
-  font-family: oswald;
-  src: url(./assets/fonts/Oswald-VariableFont_wght.ttf);
+.info-window-list-item {
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
 }
+
+
+
 
 label {
 
@@ -164,6 +201,13 @@ label {
 
   right: 10vw;
 
+}
+
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 
@@ -209,8 +253,8 @@ label {
   }
   #header {
     position: static;
-
     top: 10%;
+
   }
   #map {
     height: 100%;

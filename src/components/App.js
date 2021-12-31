@@ -1,10 +1,10 @@
-import Map from './Map'
+import Map from './map/Map'
 import Header from './Header'
 import { useState, useEffect } from 'react';
 import spinner from '../assets/images/loading.gif'
-import getRangeFromDatabase from '../firebaseFunctions';
+
 import Footer from './Footer';
-import { useDispatchGetDisplayData } from './hooks/useDispatchGetDisplayData';
+import { useDispatchGetDisplayData } from '../hooks/useDispatchGetDisplayData';
 import { useSelector } from 'react-redux';
 
 
@@ -22,28 +22,28 @@ function App() {
 
   // const displayMonth = new Date().getMonth() + 1
 
-  
+
   useDispatchGetDisplayData()
 
   const dataLoaded = useSelector(state => state.data.dataLoaded)
-  
+
   // console.log(displayData)
-  
+
   return (
     <div className="App">
 
-      {/* <Header
-
-      /> */}
+      <Header />
 
       <div id='map'>
         {dataLoaded ?
-        <Map />
-        :
-        <img id='spinner' src={spinner} alt='Loading' />}
+          <>
+            <Map />
+            <Footer />
+          </>
+          :
+          <img id='spinner' src={spinner} alt='Loading' />}
       </div>
 
-      {/* <Footer /> */}
 
     </div>
   );

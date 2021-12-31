@@ -1,24 +1,26 @@
 import logo from '../assets/images/wbc_sailwhite.png';
-import PremiseFilter from './PremiseFilter';
-import ProductFilter from './ProductFilter'
+import PremiseFilter from './filter/PremiseFilter';
+import ProductFilter from './filter/ProductFilter'
 
-const Header = ({handleFilterItemClick, productFilterState, handlePremiseClick, premiseFilterState }) => {
+const Header = ({ handleFilterItemClick, productFilterState, handlePremiseClick, premiseFilterState }) => {
 
     return (
         <div id="header">
-            <a href='https://www.waconiabrewing.com'>
-                <img id='logo' src={logo} alt="logo" />
-            </a>
-            <h1>Where To Find Us</h1>
-
-            <div id='filter'>
-                <ProductFilter
-                    productFilterState={productFilterState}
-                    handleFilterItemClick={handleFilterItemClick}
-                />
+            <div>
+                <a href='https://www.waconiabrewing.com'>
+                    <img id='logo' src={logo} alt="logo" />
+                </a>
             </div>
-            <div id='premise-filter'>
-                <PremiseFilter premiseFilterState={premiseFilterState} handlePremiseClick={handlePremiseClick} />
+            <div>
+                <h1 className='header-logo'>Where To Find Us</h1>
+
+            </div>
+
+            <div className='filter-container'>
+
+                <ProductFilter />
+                <PremiseFilter />
+
             </div>
         </div>
     )
