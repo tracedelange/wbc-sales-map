@@ -6,7 +6,9 @@ const initialState = {
     productData: {},
     dataLoaded: false,
     productFilter: null,
-    premiseFilter: null
+    premiseFilter: null,
+    userLocation: null,
+    mapCenter: { lat: 44.850114, lng: -93.790405 }
 }
 
 const dataReducer = (state=initialState, action) => {
@@ -57,6 +59,12 @@ const dataReducer = (state=initialState, action) => {
             return {
                 ...state,
                 productFilter: action.payload
+            }
+        case "SET_MAP_CENTER":
+            return {
+                ...state,
+                mapCenter: {...action.payload},
+                userLocation: {...action.payload}
             }
         default:
             return state;

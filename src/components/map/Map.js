@@ -6,10 +6,8 @@ import BlueIconSource from '../../assets/images/blue-pin-icon.png'
 import WBCLogo from '../../assets/images/logo-marker-smaller.png'
 import { useSelector } from 'react-redux'
 import MarkerInfoWindow from './MarkerInfoWindow';
-
-
-
-
+import Geolocation from './Geolocation';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 const Map = () => {
 
@@ -30,6 +28,10 @@ const Map = () => {
     const productFilter = useSelector(state => state.data.productFilter)
     const displayData = useSelector(state => state.data.displayData)
     const premiseFilter = useSelector(state => state.data.premiseFilter)
+
+    const mapCenter = useSelector(state => state.data.mapCenter)
+
+    const userLocation = useSelector(state => state.data.userLocation)
 
 
     useEffect(() => {
@@ -93,12 +95,13 @@ const Map = () => {
         setSelectedMarker(null)
     }
 
+
     return (
         <LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}>
 
             <GoogleMap
                 zoom={mapConfig.zoom}
-                center={mapConfig.center}
+                center={mapCenter}
                 mapContainerStyle={mapConfig.styles}
                 onClick={handleMapClick}
                 options={{
@@ -110,6 +113,20 @@ const Map = () => {
 
                 }}
             >
+
+                <Geolocation />
+
+                {/* {userLocation ?
+                    <Marker
+                    opacity={1}
+                    icon={{ url: AccountBoxIcon}}
+                    position={userLocation}
+                    optimized={false}
+                    />
+                    :
+                    null
+                } */}
+
                 <Marker opacity={.8} zIndex={0} icon={WBCLogo} position={mapConfig.center} />
                 {markerArray}
 

@@ -2,7 +2,8 @@ import logo from '../assets/images/wbc_sailwhite.png';
 import PremiseFilter from './filter/PremiseFilter';
 import ProductFilter from './filter/ProductFilter'
 
-const Header = ({ handleFilterItemClick, productFilterState, handlePremiseClick, premiseFilterState }) => {
+
+const Header = () => {
 
     return (
         <div id="header">
@@ -20,6 +21,7 @@ const Header = ({ handleFilterItemClick, productFilterState, handlePremiseClick,
 
                 <ProductFilter />
                 <PremiseFilter />
+
 
             </div>
         </div>
