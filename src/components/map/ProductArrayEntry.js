@@ -1,3 +1,4 @@
+import { Divider } from '@mui/material'
 import React from 'react'
 
 
@@ -9,11 +10,17 @@ const ProductArrayEntry = ({ data, products }) => {
 
 
     return (
+        <>
         <li className='info-window-list-item'>
             <p className='product-text'>
-                {productName} - {data.sale_date}
+                {productName}
+            </p>
+            <p className='product-text'>
+                {data.sale_date}
             </p>
         </li>
+        <Divider flexItem orientation='horizontal' />
+        </>
     )
 }
 

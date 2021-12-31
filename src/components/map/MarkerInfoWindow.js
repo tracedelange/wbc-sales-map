@@ -25,8 +25,8 @@ const MarkerInfoWindow = ({data, handleClose}) => {
                 <h1>
                     {data.display_name ? data.display_name : data.account_name} {/* If display name exists, display it, else display the default customer name */}
                 </h1>
-                {/* <Divider /> */}
                 <ul className='info-window-list'>
+                    <Divider flexItem orientation='horizontal' />
                     {productArray}
                 </ul>
 

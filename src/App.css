@@ -21,7 +21,7 @@ html, body {
   font */
   font-family: 'oswald';
   padding: 0%;
-  margin: 1%;
+  margin: 1px;
   font-size: 2vmin;
 }
 
@@ -130,12 +130,17 @@ body {
 } */
 
 .info {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .info h1 {
   color: #000000;
   font-size: 32px;
+  margin: 0%;
+  padding: 0%;
 }
 
 /* .info span { */
@@ -148,6 +153,7 @@ body {
 /* } */
 
 .info-window-list {
+  width: 80%;
   list-style: none;
   padding: 0%;
   display: flex;
@@ -158,8 +164,10 @@ body {
 
 .info-window-list-item {
   width: 100%;
-  /* display: flex; */
-  /* flex-direction: row; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1%;
   /* justify-content: center; */
 }
 
@@ -207,7 +215,9 @@ label {
 .filter-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
+  column-gap: 5%;
 }
 
 

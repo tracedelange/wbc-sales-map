@@ -5,7 +5,8 @@ const initialState = {
     displayData: [],
     productData: {},
     dataLoaded: false,
-    productFilter: null
+    productFilter: null,
+    premiseFilter: null
 }
 
 const dataReducer = (state=initialState, action) => {
@@ -35,6 +36,11 @@ const dataReducer = (state=initialState, action) => {
             return {
                 ...state,
                 productData: {...action.payload}
+            }
+        case "SET_PREMISE_FILTER":
+            return {
+                ...state,
+                premiseFilter: action.payload
             }
         case "FILTER_DISPLAY_DATA":
             return {

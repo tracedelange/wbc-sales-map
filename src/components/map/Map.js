@@ -8,10 +8,13 @@ import { useSelector } from 'react-redux'
 import MarkerInfoWindow from './MarkerInfoWindow';
 
 
+
+
+
 const Map = () => {
 
     const [selectedMarker, setSelectedMarker] = useState('');
-
+    const [markerArray, setMarkerArray] = useState([])
 
 
     const handleMarkerClick = (data) => {
@@ -19,36 +22,73 @@ const Map = () => {
         console.log(data)
     }
 
-    
-    
+
+
     const handleMapClick = () => {
         //if map is clicked and info window is open, close it
         setSelectedMarker(null)
     }
-    
+
     const productFilter = useSelector(state => state.data.productFilter)
     const displayData = useSelector(state => state.data.displayData)
-    
+    const premiseFilter = useSelector(state => state.data.premiseFilter)
 
-    const markerArray = displayData.map(item => {
+    useEffect(() => {
 
-        let pos = { lat: item.latitude, lng: item.longitude }
+        setSelectedMarker(null)
+
+    }, [productFilter, premiseFilter])
+
+    const filterDisplayData = (premiseFilter, displayData) => {
+
+        switch (premiseFilter) {
+            case "on":
+                return displayData.filter((account => {
+                    if (account.on_premise) {
+                        return account
+                    }
+                }))
+            case 'off':
+                return displayData.filter((account => {
+                    if (!account.on_premise) {
+                        return account
+                    }
+                }))
+            case null:
+                return displayData
+            default:
+                return;
+        }
+    }
 
 
+    useEffect(() => {
 
-        return (
-            <Marker
-                optimized={true}
-                icon={{
-                    url: item.on_premise ? BlueIconSource : RedIconSource,
-                }}
-                opacity={.95}
-                onClick={() => { handleMarkerClick(item) }}
-                key={item.id}
-                position={pos}
-            />
-        )
-    })
+
+        let filteredDisplayData = filterDisplayData(premiseFilter, displayData)
+
+        const preMarkerArray = filteredDisplayData.map(item => {
+
+            let pos = { lat: item.latitude, lng: item.longitude }
+
+            return (
+                <Marker
+                    optimized={true}
+                    icon={{
+                        url: item.on_premise ? BlueIconSource : RedIconSource,
+                    }}
+                    opacity={.95}
+                    onClick={() => { handleMarkerClick(item) }}
+                    key={item.id}
+                    position={pos}
+                />
+            )
+        })
+
+        setMarkerArray(preMarkerArray)
+
+    }, [displayData, premiseFilter])
+
 
     const handleMarkerClose = () => {
         setSelectedMarker({})
@@ -67,7 +107,7 @@ const Map = () => {
                     gestureHandling: "greedy",
                     fullscreenControl: false,
                     streetViewControl: false,
-                    mapTypeControl: false,
+                    mapTypeControl: false
 
                 }}
             >
@@ -76,7 +116,6 @@ const Map = () => {
 
                 {selectedMarker && (
                     <MarkerInfoWindow data={selectedMarker} handleClose={handleMarkerClose} />
-                    
                 )}
             </GoogleMap>
         </LoadScript>
