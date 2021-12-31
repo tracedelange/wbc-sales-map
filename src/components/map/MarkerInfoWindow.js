@@ -9,8 +9,7 @@ const MarkerInfoWindow = ({data, handleClose}) => {
     
     const productData = useSelector(state => state.data.productData)
     
-    // console.log(data)
-    // console.log(productData)
+
 
     const productArray = data.unique_orders.map(item => <ProductArrayEntry key={item.product_id} data={item} products={productData} />)
 

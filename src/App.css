@@ -7,14 +7,7 @@ html, body {
   font-family: 'oswald';
 }
 
-#header {
-  height: 10vh;
-  background-color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
+
 
 .product-text {
   /* font-style: normal;
@@ -22,7 +15,16 @@ html, body {
   font-family: 'oswald';
   padding: 0%;
   margin: 1px;
-  font-size: 2vmin;
+  font-size: 16px;
+}
+
+#header {
+  height: 10vh;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #header > div {
@@ -107,6 +109,11 @@ body {
   
 }
 
+.filter-item {
+  background-color: #C64033;
+  color: white;
+}
+
 #footer a {
   color: white;
 }
@@ -141,6 +148,7 @@ body {
   font-size: 32px;
   margin: 0%;
   padding: 0%;
+  text-align: center;
 }
 
 /* .info span { */
@@ -231,8 +239,6 @@ label {
     width: 20vw;
     margin-left: 40vw;
     margin-top: 32vh;
-  
-    
   }
   
   .App {
@@ -246,7 +252,7 @@ label {
 
 
   #logo {
-    width: 18vw;
+    width: 25vw;
     margin-top: 1vh;
   }
 
@@ -258,13 +264,38 @@ label {
  }
   #header h1 {
     /* margin-left: 1vw; */
-    font-size: 6vw;
+    display: none;
+    font-size: 3vw;
     font-weight: 500;
   }
-  #header {
-    position: static;
-    top: 10%;
 
+  #header {
+    height: 10vh;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .product-text {
+    /* font-style: normal;
+    font */
+    font-family: 'oswald';
+    padding: 0%;
+    margin: 1px;
+    font-size: 12px;
+  }
+  
+  
+  #header > div {
+    width: auto;
+  }
+  
+  .header-logo {
+    text-align: center;
+    /* font-size: auto; */
+    /* font-size: 6vw; */
   }
   #map {
     height: 100%;
@@ -275,9 +306,15 @@ label {
   .info span {
     font-weight: 400;
   }
-  .info p {
-    font-weight: 200;
+
+  .info-window-list {
+    width: 90%;
   }
+
+  /* .info p {
+    font-size: 10px;
+    font-weight: 200;
+  } */
  }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */

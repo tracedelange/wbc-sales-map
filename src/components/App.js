@@ -11,23 +11,10 @@ import { useSelector } from 'react-redux';
 function App() {
 
 
-
-  // const [productFilter, setProductFilter] = useState([])
-
-  // const [fetchCounter, setFetchCounter] = useState(0)
-
-  // const [dataLoaded, setDataLoaded] = useState(false)
-  // const [data, setData] = useState({})
-  // const [premiseState, setPremiseState] = useState('Both')
-
-  // const displayMonth = new Date().getMonth() + 1
-
-
   useDispatchGetDisplayData()
 
   const dataLoaded = useSelector(state => state.data.dataLoaded)
 
-  // console.log(displayData)
 
   return (
     <div className="App">

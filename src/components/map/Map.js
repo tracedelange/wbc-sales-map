@@ -19,9 +19,7 @@ const Map = () => {
 
     const handleMarkerClick = (data) => {
         setSelectedMarker(data)
-        console.log(data)
     }
-
 
 
     const handleMapClick = () => {
@@ -32,6 +30,7 @@ const Map = () => {
     const productFilter = useSelector(state => state.data.productFilter)
     const displayData = useSelector(state => state.data.displayData)
     const premiseFilter = useSelector(state => state.data.premiseFilter)
+
 
     useEffect(() => {
 
@@ -91,7 +90,7 @@ const Map = () => {
 
 
     const handleMarkerClose = () => {
-        setSelectedMarker({})
+        setSelectedMarker(null)
     }
 
     return (

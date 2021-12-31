@@ -1,6 +1,7 @@
 import { Button, Menu, MenuItem } from '@mui/material'
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import useMobileMediaQuery from '../../hooks/useMobileMediaQuery'
 
 const ProductFilter = () => {
 
@@ -10,6 +11,8 @@ const ProductFilter = () => {
     const filterProducts = useSelector(state => state.data.productData)
     const productFilter = useSelector(state => state.data.productFilter)
     const dispatch = useDispatch()
+
+    const isMobile = useMobileMediaQuery()
 
     const handleProductFilterItemClick = (filterItem) => {
         dispatch({ type: "SET_PRODUCT_FILTER", payload: filterItem })
@@ -53,6 +56,17 @@ const ProductFilter = () => {
             <Button
                 variant='contained'
                 onClick={handleClick}
+                sx={isMobile ?
+                    {
+                        fontSize: "60%",
+                        minWidth: 100,
+                        maxWidth: 100,
+                        maxHeight: 100,
+                        minHeight: 40
+                    }
+                    :
+                    null
+                }
             >{productFilter ?
                 productFilter.product_name
                 :
