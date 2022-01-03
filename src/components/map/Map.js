@@ -28,9 +28,8 @@ const Map = () => {
     const productFilter = useSelector(state => state.data.productFilter)
     const displayData = useSelector(state => state.data.displayData)
     const premiseFilter = useSelector(state => state.data.premiseFilter)
-
     const mapCenter = useSelector(state => state.data.mapCenter)
-
+    const mapZoom = useSelector(state => state.data.mapZoom)
     const userLocation = useSelector(state => state.data.userLocation)
 
 
@@ -100,7 +99,7 @@ const Map = () => {
         <LoadScript googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}>
 
             <GoogleMap
-                zoom={mapConfig.zoom}
+                zoom={mapZoom}
                 center={mapCenter}
                 mapContainerStyle={mapConfig.styles}
                 onClick={handleMapClick}
@@ -115,17 +114,6 @@ const Map = () => {
             >
 
                 <Geolocation />
-
-                {/* {userLocation ?
-                    <Marker
-                    opacity={1}
-                    icon={{ url: AccountBoxIcon}}
-                    position={userLocation}
-                    optimized={false}
-                    />
-                    :
-                    null
-                } */}
 
                 <Marker opacity={.8} zIndex={0} icon={WBCLogo} position={mapConfig.center} />
                 {markerArray}

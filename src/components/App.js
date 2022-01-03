@@ -6,6 +6,8 @@ import spinner from '../assets/images/loading.gif'
 import Footer from './Footer';
 import { useDispatchGetDisplayData } from '../hooks/useDispatchGetDisplayData';
 import { useSelector } from 'react-redux';
+import { CircularProgress } from '@mui/material';
+
 
 
 function App() {
@@ -28,7 +30,10 @@ function App() {
             <Footer />
           </>
           :
-          <img id='spinner' src={spinner} alt='Loading' />}
+          <div className='spinner-parent'>
+            <CircularProgress size={80} />
+          </div>
+        }
       </div>
 
 

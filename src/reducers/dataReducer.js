@@ -8,7 +8,8 @@ const initialState = {
     productFilter: null,
     premiseFilter: null,
     userLocation: null,
-    mapCenter: { lat: 44.850114, lng: -93.790405 }
+    mapCenter: { lat: 44.850114, lng: -93.790405 },
+    mapZoom: 13
 }
 
 const dataReducer = (state=initialState, action) => {
@@ -64,8 +65,14 @@ const dataReducer = (state=initialState, action) => {
             return {
                 ...state,
                 mapCenter: {...action.payload},
-                userLocation: {...action.payload}
+                userLocation: {...action.payload},
+                mapZoom: 13
             }
+        // case "SET_MAP_ZOOM":
+        //     return {
+        //         ...state,
+        //         mapZoom: action.payload
+        //     }
         default:
             return state;
     }

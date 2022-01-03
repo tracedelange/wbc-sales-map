@@ -60,13 +60,13 @@ h1, h2 {
   font-family: oswald;
 }
 
-#spinner {
-
-  display: block;
-  margin-left: 45vw;
-  margin-top: 30vh;
-
-  
+.spinner-parent {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #footer {
@@ -115,6 +115,8 @@ body {
 
 .filter-item {
   background-color: #C64033;
+  /* border: 1px soild white; */
+  border-radius: 1% / 10%;
   color: white;
 }
 
@@ -288,7 +290,7 @@ label {
     font-family: 'oswald';
     padding: 0%;
     margin: 1px;
-    font-size: 12px;
+    font-size: 13px;
   }
   
 
@@ -315,6 +317,7 @@ label {
   .info-window-list {
     width: 90%;
   }
+
 
   /* .info p {
     font-size: 10px;
