@@ -21,8 +21,6 @@ const Geolocation = () => {
     }
 
     const navSuccess = (data) => {
-
-        console.log(data)
         if (data.coords) {
             dispatch({ type: "SET_MAP_CENTER", payload: { lat: data.coords.latitude, lng: data.coords.longitude } })
             setNavigationLoading(false)
