@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import mapConfig from '../../map-config';
 import RedIconSource from '../../assets/images/pin-icon.png'
 import BlueIconSource from '../../assets/images/blue-pin-icon.png'
@@ -7,7 +7,7 @@ import WBCLogo from '../../assets/images/logo-marker-smaller.png'
 import { useSelector } from 'react-redux'
 import MarkerInfoWindow from './MarkerInfoWindow';
 import Geolocation from './Geolocation';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+
 
 const Map = () => {
 
@@ -30,7 +30,7 @@ const Map = () => {
     const premiseFilter = useSelector(state => state.data.premiseFilter)
     const mapCenter = useSelector(state => state.data.mapCenter)
     const mapZoom = useSelector(state => state.data.mapZoom)
-    const userLocation = useSelector(state => state.data.userLocation)
+
 
 
     useEffect(() => {

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from '@mui/material'
 import NavigationIcon from '@mui/icons-material/Navigation';
-import { useDispatch, useSelector } from 'react-redux'
-import { Marker } from '@react-google-maps/api';
+import { useDispatch } from 'react-redux'
 import CircularProgress from '@mui/material/CircularProgress';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 import GeolocationFailedDialog from './GeolocationFailedDialog'
@@ -11,7 +10,6 @@ const Geolocation = () => {
 
 
     const dispatch = useDispatch()
-    const userLocation = useSelector(state => state.data.userLocation)
     const [navigationLoading, setNavigationLoading] = useState(false)
     const [navigationFailWarningActive, setNavigationFailWarningActive] = useState(false)
     const [navFailedDialogOpen, setNavFailedDialogOpen] = useState(false)
@@ -44,12 +42,12 @@ const Geolocation = () => {
         setNavFailedDialogOpen(true)
 
     }
-    
+
 
     return (
         <>
-            <GeolocationFailedDialog open={navFailedDialogOpen} handleClose={() => {setNavFailedDialogOpen(false)}} />
-            <Button  className='nav-button' onClick={navigationFailWarningActive ? handleFailNavClick : handleNavigationClick} variant='contained' >
+            <GeolocationFailedDialog open={navFailedDialogOpen} handleClose={() => { setNavFailedDialogOpen(false) }} />
+            <Button className='nav-button' onClick={navigationFailWarningActive ? handleFailNavClick : handleNavigationClick} variant='contained' >
                 {navigationFailWarningActive ?
                     <DoNotDisturbIcon />
                     :

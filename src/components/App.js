@@ -1,8 +1,5 @@
 import Map from './map/Map'
 import Header from './Header'
-import { useState, useEffect } from 'react';
-import spinner from '../assets/images/loading.gif'
-
 import Footer from './Footer';
 import { useDispatchGetDisplayData } from '../hooks/useDispatchGetDisplayData';
 import { useSelector } from 'react-redux';
@@ -20,9 +17,7 @@ function App() {
 
   return (
     <div className="App">
-
       <Header />
-
       <div id='map'>
         {dataLoaded ?
           <>
@@ -35,8 +30,6 @@ function App() {
           </div>
         }
       </div>
-
-
     </div>
   );
 }

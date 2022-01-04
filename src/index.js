@@ -7,8 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import rootReducer from './reducers'
-import { ThemeProvider, StyledEngineProvider, createTheme, adaptV4Theme } from '@mui/material/styles';
+import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';
 import { muiTheme } from './muiTheme'
+
+require('default-passive-events');
 
 const store = createStore(rootReducer)
 const theme = createTheme(muiTheme)

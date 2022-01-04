@@ -1,6 +1,6 @@
-import { Button, Menu, MenuItem } from '@mui/material'
+import { Button } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import React, { useState } from 'react'
+import React from 'react'
 import useMobileMediaQuery from '../../hooks/useMobileMediaQuery'
 
 const PremiseFilter = () => {

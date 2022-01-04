@@ -2,11 +2,11 @@ import React from 'react'
 import { InfoWindow } from '@react-google-maps/api'
 import ProductArrayEntry from './ProductArrayEntry'
 import { useSelector } from 'react-redux'
-import {Divider} from '@mui/material'
+import { Divider } from '@mui/material'
 
-const MarkerInfoWindow = ({data, handleClose}) => {
+const MarkerInfoWindow = ({ data, handleClose }) => {
 
-    
+
     const productData = useSelector(state => state.data.productData)
     const productArray = data.unique_orders.map(item => <ProductArrayEntry key={item.product_id} data={item} products={productData} />)
 

@@ -2,7 +2,6 @@ import logo from '../assets/images/wbc_sailwhite.png';
 import PremiseFilter from './filter/PremiseFilter';
 import ProductFilter from './filter/ProductFilter'
 
-
 const Header = () => {
 
     return (
@@ -14,15 +13,10 @@ const Header = () => {
             </div>
             <div>
                 <h1 className='header-logo'>Where To Find Us</h1>
-
             </div>
-
             <div className='filter-container'>
-
                 <ProductFilter />
                 <PremiseFilter />
-
-
             </div>
         </div>
     )
