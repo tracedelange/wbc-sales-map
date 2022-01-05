@@ -8,6 +8,8 @@ See the CHANGELOG for more information about features and development of this pr
 
 Backend repository can be found <a href='https://github.com/tracedelange/wbc-sales-api'>here</a>
 
+Visit the live site <a href='https://find.waconiabrewing.com/'>here</a>
+
 
 
 
