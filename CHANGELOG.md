@@ -130,3 +130,22 @@ This project is under development by Trace DeLange, any questions can be directe
 
 ### Fixed
 - On the turn of the month there was no data to retrieve from the backend for the month of september. On first backend fetch the fetch function would return undefined and the loop would break because there was no data to work with. Additionally, the number of fetches incremented to the back end was only 2, because the first didn't return anything. This has been fixed by ensuring that even when a database snapshot is empty, the fetch callback function is still executed. In this context, the lack of that execution resulted in a permanent loading page. Additionally, there has been a null check included in the backend processing to add two layers of redundancy against a bug like this in the future.
+
+## [2.0] - TESTING - 1/4/2022
+
+### Added
+ - MUI v5
+ - Redux store to manage global state, including active filters, display data and user location.
+ - Added support for user location services 
+
+### Changed
+ - Updated styling library to Material UI version 5
+ - Integrated custom MUI theme to apply custom font size across application
+ - Refactored map components to better implement separation of concerns
+ - Changed data storage to organization rails API containing sales information
+ - Updated styling rules for mobile to better handle mobile interactions
+
+### Removed
+ - Removed Firebase as primary backend storage service
+ - Removed previous fetch requests and configuration variables
+ - Removed outdated dependencies

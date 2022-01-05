@@ -1,10 +1,17 @@
 # Waconia Brewing Company Sales Map
 
-This project was built using React and is being hosted on heroku. The project utilizes a firebase server containing sales data to display up to date product availbilty information on a map using the Google Map API.
+A webapp designed to connect customers to distributed brewery products. 
+
+Built using React, Google Map API, Redux, Material UI and Rails. 
+
+See the CHANGELOG for more information about features and development of this project.
+
+Backend repository can be found <a href='https://github.com/tracedelange/wbc-sales-api'>here</a>
 
 Visit the live site <a href='https://find.waconiabrewing.com/'>here</a>
 
-See the CHANGELOG for more information about features and development of this project.
+
+
 
 
 
